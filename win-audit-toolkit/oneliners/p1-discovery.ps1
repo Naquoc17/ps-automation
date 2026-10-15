@@ -8,3 +8,10 @@ Get-ItemProperty -Path HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersi
 Get-ItemProperty -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System -Name EnableLUA
 # PATH
 Get-Item Env:Path
+
+# Get all running Services
+Get-Service | Where-Object {$_.Status -eq "Running"}
+
+# Get all enabled inbound firewall rules
+Get-NetFirewallRule -Direction inbound -Enabled true
+
